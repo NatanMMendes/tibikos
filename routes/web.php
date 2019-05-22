@@ -14,12 +14,23 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('/', function () {
-		return view('welcome');
-	});
+	Route::get('/', 'TibikosController@dashboard')->name('home');
+
+	Route::get('produtos', 'TibikosController@produtos')->name('produtos');
+
+	Route::get('fornecedores', 'TibikosController@fornecedores')->name('fornecedores');
+
+	Route::get('compras', 'TibikosController@compras')->name('compras');
+
+	Route::get('localidades', 'TibikosController@localidades')->name('localidades');
+
+	Route::get('relatorios', 'TibikosController@relatorios')->name('relatorios');
+
+
+
+
+
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
