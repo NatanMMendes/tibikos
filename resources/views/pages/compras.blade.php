@@ -11,23 +11,25 @@
             <p class="card-category"> Here is a subtitle for this table</p>
           </div>
           <div class="card-body">
+          <div class="row">
+                  <div class="col-12 text-right">
+                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Pedido de Compra') }}</a>
+                  </div>
+                </div>
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
                   <th>
-                    ID
+                    ID do Pedido
                   </th>
                   <th>
-                    Name
+                    Data Pedido
                   </th>
                   <th>
-                    Country
+                    Data Entrega
                   </th>
                   <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
+                    Qtd de Produtos Total
                   </th>
                 </thead>
                 <tbody>
