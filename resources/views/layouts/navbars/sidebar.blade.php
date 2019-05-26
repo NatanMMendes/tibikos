@@ -17,6 +17,12 @@
             <p>{{ __('Dashboard') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'estoque' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('estoque') }}">
+          <i class="material-icons"></i>
+            <p>{{ __('Estoque') }}</p>
+        </a>
+      </li>
       <li class="nav-item{{ $activePage == 'produtos' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('produtos') }}">
           <i class="material-icons"></i>

@@ -13,7 +13,11 @@
             <p class="card-category"> Todos os produtos</p>
           </div>
           <div class="card-body">
-            <div class="table-responsive">
+              <div class="col-12 text-right">
+                    <a href="{{ route('novo-produto') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Produtos') }}</a>
+                  </div>
+                </div>
+            <div class="table-responsive col-md-12">
               <table class="table">
                 <thead class=" text-primary">
                   <th>
@@ -23,39 +27,41 @@
                     Nome
                   </th>
                   <th>
-                    Preço
+                    Marca
                   </th>
                   <th>
-                    Quantidade
+                    Cor
                   </th>
                   <th>
-                    Fornecedor
+                    Tamanho
                   </th>
                   <th>
-                    Localização
+                    Preço Unidade
                   </th>
                   <th>
                   </th>
                 </thead>
                 <tbody>
+                @foreach($produtos as $produto)
                   <tr>
                     <td>
-                      1
+                      {{ $produto->idprod}}
                     </td>
                     <td>
-                      Babador
+                      {{ $produto->nome}}
+
                     </td>
                     <td>
-                      R$50,00
+                      {{ $produto->marca }}
                     </td>
                     <td>
-                      30
+                      {{ $produto->cor}}
                     </td>
                     <td>
-                      BB Kids S.A
+                      {{ $produto->tamanho}}
                     </td>
                     <td>
-                      Plateleira A
+                    R$ {{ $produto->valoruni}}
                     </td>
                     <td class="td-actions text-center">
                       <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('profile.edit') }}" data-original-title="" title="">
@@ -64,7 +70,7 @@
                       </a>
                   </td>
                   </tr>
-
+                @endforeach
                 </tbody>
               </table>
             </div>

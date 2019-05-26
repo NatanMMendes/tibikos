@@ -19,6 +19,17 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('produtos', 'TibikosController@produtos')->name('produtos');
 
+	Route::get('editar-produto/{id_produto}', 'TibikosController@editarProduto')->name('editarproduto');
+
+	Route::get('novo-produto', function () {
+		return view('produtos.create');
+	})->name('novo-produto');
+
+	Route::post('criar-produto', 'TibikosController@criarProduto')->name('criar-produto');
+
+
+	Route::get('estoque', 'TibikosController@estoque')->name('estoque');
+
 	Route::get('fornecedores', 'TibikosController@fornecedores')->name('fornecedores');
 
 	Route::get('compras', 'TibikosController@compras')->name('compras');
@@ -26,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('localidades', 'TibikosController@localidades')->name('localidades');
 
 	Route::get('relatorios', 'TibikosController@relatorios')->name('relatorios');
+
+	
 
 
 
