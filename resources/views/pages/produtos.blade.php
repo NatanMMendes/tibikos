@@ -64,8 +64,12 @@
                     R$ {{ $produto->valoruni}}
                     </td>
                     <td class="td-actions text-center">
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('profile.edit') }}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterproduto' ,$produto->idprod ) }}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
+                        <div class="ripple-container"></div>
+                      </a>
+                      <a rel="tooltip" class="btn btn-erro btn-link" href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" data-original-title="" title="">
+                        <i class="material-icons">delete</i>
                         <div class="ripple-container"></div>
                       </a>
                   </td>

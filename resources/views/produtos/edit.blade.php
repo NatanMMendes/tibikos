@@ -1,69 +1,72 @@
-@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('User Management')])
+@extends('layouts.app', ['activePage' => 'editar-produto', 'titlePage' => __('Editar Produto')])
 
 @section('content')
   <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="{{ route('user.update', $user) }}" autocomplete="off" class="form-horizontal">
+          <form method="post" action="{{ route('editar-produto') }}" autocomplete="off" class="form-horizontal">
             @csrf
-            @method('put')
+            @method('post')
 
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Edit User') }}</h4>
+                <h4 class="card-title">{{ __('Editar Produto') }}</h4>
+                <input  name="idprod" id="input-idprod" type="text" placeholder="{{ __('Nome do Produto') }}" value="{{$produto->idprod}}" style='display:none'/>
                 <p class="card-category"></p>
               </div>
               <div class="card-body ">
                 <div class="row">
                   <div class="col-md-12 text-right">
-                      <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
+                      <a href="{{ route('produtos') }}" class="btn btn-sm btn-primary">{{ __('Voltar aos Produtos') }}</a>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Name') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Nome do Produto') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Name') }}" value="{{ old('name', $user->name) }}" required="true" aria-required="true"/>
-                      @if ($errors->has('name'))
-                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
-                      @endif
+                    <div class="form-group{{ $errors->has('nome') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="nome" id="input-nome" type="text" placeholder="{{ __('Nome do Produto') }}" value="{{$produto->nome}}" required="true" aria-required="true"/>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Email') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Marca') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="input-email" type="email" placeholder="{{ __('Email') }}" value="{{ old('email', $user->email) }}" required />
-                      @if ($errors->has('email'))
-                        <span id="email-error" class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
-                      @endif
+                    <div class="form-group{{ $errors->has('marca') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('marca') ? ' is-invalid' : '' }}" name="marca" id="input-marca" type="text" placeholder="{{ __('Marca') }}" value="{{$produto->marca}}" required="true" aria-required="true"/>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password">{{ __(' Password') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Cor') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" input type="password" name="password" id="input-password" placeholder="{{ __('Password') }}" />
-                      @if ($errors->has('password'))
-                        <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('password') }}</span>
-                      @endif
+                    <div class="form-group{{ $errors->has('cor') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('cor') ? ' is-invalid' : '' }}" name="cor" id="input-cor" type="text" placeholder="{{ __('Cor') }}" value="{{$produto->cor}}" required="true" aria-required="true"/>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password-confirmation">{{ __('Confirm Password') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Tamanho') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group">
-                      <input class="form-control" name="password_confirmation" id="input-password-confirmation" type="password" placeholder="{{ __('Confirm Password') }}" />
+                    <div class="form-group{{ $errors->has('tamanho') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('tamanho') ? ' is-invalid' : '' }}" name="tamanho" id="input-tamanho" type="text" placeholder="{{ __('Tamanho') }}" value="{{$produto->tamanho}}" required="true" aria-required="true"/>
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Valor Unitário') }}</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">R$</span>
+                    </div>
+                    <input class="form-control{{ $errors->has('valoruni') ? ' is-invalid' : '' }}" name="valoruni" id="input-valoruni" type="text" placeholder="{{ __('0.00') }}" value="{{$produto->valoruni}}" required="true" aria-required="true"/>
+                  </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Salvar Alterações') }}</button>
+              </div>
+              <div class="card-footer ml-auto mr-auto">
+                <a href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" class="btn btn-primary">{{ __('Excluir Produto') }}</button>
               </div>
             </div>
           </form>
