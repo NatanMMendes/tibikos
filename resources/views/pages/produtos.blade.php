@@ -1,7 +1,6 @@
 @extends('layouts.app', ['activePage' => 'produtos', 'titlePage' => __('Produtos')])
 
 @section('content')
-
 <div class="content">
 
   <div class="container-fluid">
