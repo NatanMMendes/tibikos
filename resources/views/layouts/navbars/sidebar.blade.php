@@ -48,6 +48,12 @@
             <p>{{ __('Relatorios') }}</p>
         </a>
       </li>
+      <li class="nav-item{{ $activePage == 'informacoes' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('informacoes') }}">
+          <i class="material-icons"></i>
+            <p>{{ __('Informações') }}</p>
+        </a>
+      </li>
     </ul>
   </div>
 </div>
