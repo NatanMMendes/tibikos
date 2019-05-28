@@ -37,15 +37,15 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'localidades' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('localidades') }}">
+        <a class="nav-link" href="{{ route('locais') }}">
           <i class="material-icons"></i>
-            <p>{{ __('Localidades') }}</p>
+            <p>{{ __('Locais') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'relatorios' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('relatorios') }}">
+      <li class="nav-item{{ $activePage == 'user' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('user') }}">
           <i class="material-icons"></i>
-            <p>{{ __('Relatorios') }}</p>
+            <p>{{ __('Usuarios') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'informacoes' ? ' active' : '' }}">

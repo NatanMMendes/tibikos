@@ -17,29 +17,47 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/', 'TibikosController@dashboard')->name('home');
 
-	Route::get('produtos', 'TibikosController@produtos')->name('produtos');
+	/*Produtos*/
+	Route::get('produtos', 'ProdutosController@produtos')->name('produtos');
+	Route::get('manter-produto/{id_produto}', 'ProdutosController@manterProduto')->name('manterproduto');
+	Route::get('excluir-produto/{id_produto}', 'ProdutosController@excluirProduto')->name('excluirproduto');
+	Route::get('novo-produto', function () {return view('produtos.create');})->name('novo-produto');
+	Route::post('criar-produto', 'ProdutosController@criarProduto')->name('criar-produto');
+	Route::post('editar-produto', 'ProdutosController@editarProduto')->name('editar-produto');
 
-	Route::get('manter-produto/{id_produto}', 'TibikosController@manterProduto')->name('manterproduto');
+	/*Localidades*/
+	Route::get('locais', 'LocaisController@locais')->name('locais');
+	Route::get('manter-local/{id_local}', 'LocaisController@manterLocal')->name('manterlocal');
+	Route::get('excluir-local/{id_local}', 'LocaisController@excluirLocal')->name('excluirlocal');
+	Route::get('novo-local', function () {return view('locais.create');})->name('novo-local');
+	Route::post('criar-local', 'LocaisController@criarLocal')->name('criar-local');
+	Route::post('editar-local', 'LocaisController@editarLocal')->name('editar-local');
 
-	Route::get('excluir-produto/{id_produto}', 'TibikosController@excluirProduto')->name('excluirproduto');
-	Route::get('novo-produto', function () {
-		return view('produtos.create');
-	})->name('novo-produto');
+	/*Fornecedores*/
+	Route::get('fornecedores', 'FornecedoresController@fornecedores')->name('fornecedores');
+	Route::get('manter-fornecedor/{id_fornecedor}', 'FornecedoresController@manterFornecedor')->name('manterfornecedor');
+	Route::get('excluir-fornecedor/{id_fornecedor}', 'FornecedoresController@excluirFornecedor')->name('excluirfornecedor');
+	Route::get('novo-fornecedor', function () {return view('fornecedores.create');})->name('novo-fornecedor');
+	Route::post('criar-fornecedor', 'FornecedoresController@criarFornecedor')->name('criar-fornecedor');
+	Route::post('editar-fornecedor', 'FornecedoresController@editarFornecedor')->name('editar-fornecedor');
 
-	Route::post('criar-produto', 'TibikosController@criarProduto')->name('criar-produto');
+	/*Estoque*/
+	Route::get('estoque', 'EstoqueController@estoque')->name('estoque');
+	//Route::get('manter-fornecedor/{id_fornecedor}', 'FornecedorController@manterFornecedor')->name('manterfornecedor');
+	//Route::get('excluir-fornecedor/{id_fornecedor}', 'FornecedorController@excluirFornecedor')->name('excluirfornecedor');
+	//Route::get('novo-fornecedor', function () {return view('fornecedores.create');})->name('novo-fornecedor');
+	//Route::post('criar-fornecedor', 'FornecedorController@criarFornecedor')->name('criar-fornecedor');
+	//Route::post('editar-fornecedor', 'FornecedorController@editarFornecedor')->name('editar-fornecedor');
 
-	Route::post('editar-produto', 'TibikosController@editarProduto')->name('editar-produto');
+	/*Compra*/
+	Route::get('compras', 'ComprasController@compras')->name('compras');
+	Route::get('manter-compra/{id_compra}', 'ComprasController@manterCompra')->name('mantercompra');
+	Route::get('excluir-compra/{id_compra}', 'ComprasController@excluirCompra')->name('excluircompra');
+	Route::get('novo-compra', function () {return view('compras.create');})->name('novo-compra');
+	Route::post('criar-compra', 'ComprasController@criarCompra')->name('criar-compra');
+	Route::post('editar-compra', 'ComprasController@editarCompra')->name('editar-compra');
 
-	Route::get('estoque', 'TibikosController@estoque')->name('estoque');
-
-	Route::get('fornecedores', 'TibikosController@fornecedores')->name('fornecedores');
-
-	Route::get('compras', 'TibikosController@compras')->name('compras');
-
-	Route::get('localidades', 'TibikosController@localidades')->name('localidades');
-
-	Route::get('relatorios', 'TibikosController@relatorios')->name('relatorios');
-
+	
 	Route::get('informacoes', function () {
 		return view('pages.informacoes');
 	})->name('informacoes');
