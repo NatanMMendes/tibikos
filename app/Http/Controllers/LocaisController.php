@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Http\Models\LocalModel as Local;
+use App\Http\Models\LocaisModel as Local;
 
 
 class LocaisController extends Controller
@@ -14,28 +14,25 @@ class LocaisController extends Controller
     public function locais()
     {
         $locais = Local::paginate(15);
-        return view('pages.locais', ['locais' => $locais]);
+        return view('pages.localidades', ['locais' => $locais]);
     }
 
     public function manterLocal(Request $request){
         
-        $local = Local::where('idprod', $request->id_local)->get()[0];
+        $local = Local::where('idloc', $request->id_local)->get()[0];
         return view('locais.edit', ['local' => $local]);
     }
     
     public function editarLocal(Request $request){
         
         try{
-            $local = Local::where('idprod', $request->idprod)->get()[0];
-            $local->nome = $request->nome;
-            $local->marca = $request->marca;
-            $local->cor = $request->cor;
+            $local = Local::where('idloc', $request->idloc)->get()[0];
+            $local->endereco = $request->endereco;
             $local->tamanho = $request->tamanho;
-            $local->valoruni = $request->valoruni;
 
             $local->save();
         }catch (Exception $e) {
-            return redirect()->route('manter-local' , $request->idprod);
+            return redirect()->route('manter-local' , $request->idloc);
         } 
         return redirect()->route('locais');
     }
@@ -43,7 +40,7 @@ class LocaisController extends Controller
     public function excluirLocal(Request $request){
         
         try{
-            $local = Local::where('idprod', $request->id_local)->get()[0];
+            $local = Local::where('idloc', $request->id_local)->get()[0];
 
             $local->delete();
         }catch (Exception $e) {
@@ -57,11 +54,8 @@ class LocaisController extends Controller
         try{
             $local = new Local;
 
-            $local->nome = $request->nome;
-            $local->marca = $request->marca;
-            $local->cor = $request->cor;
+            $local->endereco = $request->endereco;
             $local->tamanho = $request->tamanho;
-            $local->valoruni = $request->valoruni;
 
             $local->save();
         }catch (Exception $e) {

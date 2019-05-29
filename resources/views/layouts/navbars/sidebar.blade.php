@@ -36,7 +36,7 @@
             <p>{{ __('Compras') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'localidades' ? ' active' : '' }}">
+      <li class="nav-item{{ $activePage == 'locais' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('locais') }}">
           <i class="material-icons"></i>
             <p>{{ __('Locais') }}</p>

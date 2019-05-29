@@ -66,7 +66,7 @@
                 <button type="submit" class="btn btn-primary">{{ __('Salvar Alterações') }}</button>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <a href="{{ route('excluirfornecedor' ,$fornecedor->idforn ) }}" onclick="return confirm('Deseja mesmo apagar?')" class="btn btn-primary">{{ __('Excluir Fornecedor') }}</button>
+                <a href="{{ route('excluirfornecedor' ,$fornecedor->idforn ) }}" onclick="return confirm('Deseja mesmo apagar?')" class="btn btn-primary">{{ __('Excluir Fornecedor') }}</a>
               </div>
             </div>
           </form>

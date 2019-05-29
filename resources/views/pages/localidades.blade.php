@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'Localidade', 'titlePage' => __('Localidades')])
+@extends('layouts.app', ['activePage' => 'locais', 'titlePage' => __('Localidades')])
 
 @section('content')
 <div class="content">
@@ -8,66 +8,48 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Produtos</h4>
-            <p class="card-category"> Todos os produtos</p>
+            <h4 class="card-title ">Localidades</h4>
+            <p class="card-category"> Todos os Locais</p>
           </div>
           <div class="card-body">
               <div class="col-12 text-right">
-                    <a href="{{ route('novo-produto') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Produtos') }}</a>
+                    <a href="{{ route('novo-local') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Local') }}</a>
                   </div>
                 </div>
             <div class="table-responsive col-md-12">
               <table class="table">
                 <thead class=" text-primary">
                   <th>
-                    ID Produto
+                    ID Local
                   </th>
                   <th>
-                    Nome
+                    Local
                   </th>
                   <th>
-                    Marca
-                  </th>
-                  <th>
-                    Cor
-                  </th>
-                  <th>
-                    Tamanho
-                  </th>
-                  <th>
-                    Preço Unidade
+                    Capacidade
                   </th>
                   <th>
                   </th>
                 </thead>
                 <tbody>
-                @foreach($produtos as $produto)
+                @foreach($locais as $local)
                   <tr>
                     <td>
-                      {{ $produto->idprod}}
+                      {{ $local->idloc}}
                     </td>
                     <td>
-                      {{ $produto->nome}}
+                      {{ $local->endereco}}
 
                     </td>
                     <td>
-                      {{ $produto->marca }}
-                    </td>
-                    <td>
-                      {{ $produto->cor}}
-                    </td>
-                    <td>
-                      {{ $produto->tamanho}}
-                    </td>
-                    <td>
-                    R$ {{ $produto->valoruni}}
+                      {{ $local->tamanho }}
                     </td>
                     <td class="td-actions text-center">
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterproduto' ,$produto->idprod ) }}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterlocal' ,$local->idloc ) }}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <a rel="tooltip" class="btn btn-erro btn-link" href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-erro btn-link" href="{{ route('excluirlocal' ,$local->idloc ) }}" onclick="return confirm('Deseja mesmo apagar?')" data-original-title="" title="">
                         <i class="material-icons">delete</i>
                         <div class="ripple-container"></div>
                       </a>

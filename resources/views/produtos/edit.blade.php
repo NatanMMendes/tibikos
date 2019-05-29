@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'editar-produto', 'titlePage' => __('Editar Produto')])
+@extends('layouts.app', ['activePage' => 'produtos', 'titlePage' => __('Editar Produto')])
 
 @section('content')
   <div class="content">
@@ -61,12 +61,13 @@
                     </div>
                     <input class="form-control{{ $errors->has('valoruni') ? ' is-invalid' : '' }}" name="valoruni" id="input-valoruni" type="text" placeholder="{{ __('0.00') }}" value="{{$produto->valoruni}}" required="true" aria-required="true"/>
                   </div>
+                </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Salvar Alterações') }}</button>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <a href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" class="btn btn-primary">{{ __('Excluir Produto') }}</button>
+                <a href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" class="btn btn-primary">{{ __('Excluir Produto') }}</a>
               </div>
             </div>
           </form>
