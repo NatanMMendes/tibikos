@@ -51,7 +51,7 @@
       </li>
       <li class="nav-item{{ $activePage == 'informacoes' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('informacoes') }}">
-        <i class="material-icons">dashboard</i>
+        <i class="material-icons">info</i>
             <p>{{ __('Informações') }}</p>
         </a>
       </li>
