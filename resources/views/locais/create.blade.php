@@ -36,6 +36,17 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Status') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('tamanho') ? ' has-danger' : '' }}">
+                    <select name='status' class="custom-select" id="inputGroupSelect01">
+                      <option value="A">Ativo</option>
+                      <option value="I">Inativo</option>
+                    </select>                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="card-footer ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary">{{ __('Adicionar Local') }}</button>
               </div>
@@ -45,4 +56,4 @@
       </div>
     </div>
   </div>
-@endsection
+@endsection                  
