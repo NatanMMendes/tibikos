@@ -19,10 +19,10 @@
                     ID Estoque
                   </th>
                   <th>
-                    ID Produto
+                    Produto
                   </th>
                   <th>
-                    ID Local
+                    Local
                   </th>
                   <th>
                     QTD
@@ -38,11 +38,11 @@
                       {{ $item->idest }}
                     </td>
                     <td>
-                      {{ $item->idp}}
+                      {{ $item->nome}}
 
                     </td>
                     <td>
-                      {{ $item->idl }}
+                      {{ $item->endereco }}
                     </td>
                     <td>
                       {{ $item->qtd }}

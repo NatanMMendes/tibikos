@@ -13,7 +13,7 @@ class FornecedoresController extends Controller
     }
     public function fornecedores()
     {
-        $fornecedores = Fornecedor::paginate(15);
+        $fornecedores = Fornecedor::all();
         return view('pages.fornecedores', ['fornecedores' => $fornecedores]);
     }
 

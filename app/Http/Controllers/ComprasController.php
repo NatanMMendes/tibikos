@@ -21,7 +21,7 @@ class ComprasController extends Controller
     }
     public function compras()
     {
-        $compras = Compra::join('produto', 'pedido_compra.idpr', '=', 'produto.idprod')->join('fornecedor', 'pedido_compra.idfornc', '=', 'fornecedor.idforn')->paginate(15);
+        $compras = Compra::join('produto', 'pedido_compra.idpr', '=', 'produto.idprod')->join('fornecedor', 'pedido_compra.idfornc', '=', 'fornecedor.idforn')->get();
         return view('pages.compras', ['compras' => $compras]);
     }
 

@@ -13,7 +13,7 @@ class LocaisController extends Controller
     }
     public function locais()
     {
-        $locais = Local::paginate(15);
+        $locais = Local::all();
         return view('pages.localidades', ['locais' => $locais]);
     }
 

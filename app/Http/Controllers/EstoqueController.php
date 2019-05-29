@@ -13,7 +13,7 @@ class EstoqueController extends Controller
     }
     public function estoque()
     {
-        $estoque = Estoque::paginate(15);
+        $estoque = Estoque::join('produto', 'estoque.idp', '=', 'produto.idprod')->join('localidade', 'estoque.idl', '=', 'localidade.idloc')->get();
         return view('pages.estoque', ['estoque' => $estoque]);
     }
 

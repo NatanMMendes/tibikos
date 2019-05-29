@@ -13,7 +13,7 @@ class ProdutosController extends Controller
     }
     public function produtos()
     {
-        $produtos = Produto::paginate(15);
+        $produtos = Produto::all();
         return view('pages.produtos', ['produtos' => $produtos]);
     }
 
