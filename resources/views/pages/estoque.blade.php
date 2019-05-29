@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'Localidade', 'titlePage' => __('Localidades')])
+@extends('layouts.app', ['activePage' => 'estoque', 'titlePage' => __('Estoque de Produtos')])
 
 @section('content')
 <div class="content">
@@ -8,70 +8,56 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Produtos</h4>
-            <p class="card-category"> Todos os produtos</p>
+            <h4 class="card-title ">Estoque de Produtos</h4>
+            <p class="card-category"> Gerenciar Estoque de Produtos</p>
           </div>
           <div class="card-body">
-              <div class="col-12 text-right">
-                    <a href="{{ route('novo-produto') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Produtos') }}</a>
-                  </div>
-                </div>
             <div class="table-responsive col-md-12">
               <table class="table">
                 <thead class=" text-primary">
                   <th>
+                    ID Estoque
+                  </th>
+                  <th>
                     ID Produto
                   </th>
                   <th>
-                    Nome
+                    ID Local
                   </th>
                   <th>
-                    Marca
-                  </th>
-                  <th>
-                    Cor
-                  </th>
-                  <th>
-                    Tamanho
-                  </th>
-                  <th>
-                    Preço Unidade
+                    QTD
                   </th>
                   <th>
                   </th>
+
                 </thead>
                 <tbody>
-                @foreach($produtos as $produto)
+                @foreach($estoque as $item)
                   <tr>
                     <td>
-                      {{ $produto->idprod}}
+                      {{ $item->idest }}
                     </td>
                     <td>
-                      {{ $produto->nome}}
+                      {{ $item->idp}}
 
                     </td>
                     <td>
-                      {{ $produto->marca }}
+                      {{ $item->idl }}
                     </td>
                     <td>
-                      {{ $produto->cor}}
+                      {{ $item->qtd }}
                     </td>
-                    <td>
-                      {{ $produto->tamanho}}
+                    <td class="td-actions">
+
+                      <div class="col-1 text-right">
+                          <a href="{{ route('devolucao-estoque') }}" class="btn btn-sm btn-primary">{{ __('Baixa') }}</a>
+                        </div>
+                        <div class="col-1 text-right">
+                          <a href="{{ route('baixa-estoque') }}" class="btn btn-sm btn-primary">{{ __('Devolução') }}</a>
+                        </div>
+
                     </td>
-                    <td>
-                    R$ {{ $produto->valoruni}}
-                    </td>
-                    <td class="td-actions text-center">
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterproduto' ,$produto->idprod ) }}" data-original-title="" title="">
-                        <i class="material-icons">edit</i>
-                        <div class="ripple-container"></div>
-                      </a>
-                      <a rel="tooltip" class="btn btn-erro btn-link" href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" data-original-title="" title="">
-                        <i class="material-icons">delete</i>
-                        <div class="ripple-container"></div>
-                      </a>
-                  </td>
+
                   </tr>
                 @endforeach
                 </tbody>

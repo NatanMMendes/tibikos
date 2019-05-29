@@ -43,6 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 	/*Estoque*/
 	Route::get('estoque', 'EstoqueController@estoque')->name('estoque');
+	Route::get('baixa-estoque', 'EstoqueController@baixa')->name('baixa-estoque');
+	Route::get('devolucao-estoque', 'EstoqueController@devolucao')->name('devolucao-estoque');
+
+	
 	//Route::get('manter-fornecedor/{id_fornecedor}', 'FornecedorController@manterFornecedor')->name('manterfornecedor');
 	//Route::get('excluir-fornecedor/{id_fornecedor}', 'FornecedorController@excluirFornecedor')->name('excluirfornecedor');
 	//Route::get('novo-fornecedor', function () {return view('fornecedores.create');})->name('novo-fornecedor');
