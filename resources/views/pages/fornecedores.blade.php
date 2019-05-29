@@ -1,279 +1,68 @@
-@extends('layouts.app', ['activePage' => 'table', 'titlePage' => __('Table List')])
+@extends('layouts.app', ['activePage' => 'fornecedores', 'titlePage' => __('Fornecedores')])
 
 @section('content')
 <div class="content">
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
+            <h4 class="card-title ">Fornecedores</h4>
+            <p class="card-category"> Todos os Fornecedores</p>
           </div>
           <div class="card-body">
-            <div class="table-responsive">
+              <div class="col-12 text-right">
+                    <a href="{{ route('novo-fornecedor') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Fornecedor') }}</a>
+                  </div>
+                </div>
+            <div class="table-responsive col-md-12">
               <table class="table">
                 <thead class=" text-primary">
                   <th>
-                    ID
+                    ID Fornecedor
                   </th>
                   <th>
-                    Name
+                    Nome
                   </th>
                   <th>
-                    Country
+                    CNPJ
                   </th>
                   <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
                   </th>
                 </thead>
                 <tbody>
+                @foreach($fornecedores as $fornecedor)
                   <tr>
                     <td>
-                      1
+                      {{ $fornecedor->idforn}}
                     </td>
                     <td>
-                      Dakota Rice
+                      {{ $fornecedor->nome}}
+
                     </td>
                     <td>
-                      Niger
+                      {{ $fornecedor->cnpj }}
                     </td>
-                    <td>
-                      Oud-Turnhout
-                    </td>
-                    <td class="text-primary">
-                      $36,738
-                    </td>
+                    <td class="td-actions text-center">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterfornecedor' ,$fornecedor->idforn ) }}" data-original-title="" title="">
+                        <i class="material-icons">edit</i>
+                        <div class="ripple-container"></div>
+                      </a>
+                      <a rel="tooltip" class="btn btn-erro btn-link" href="{{ route('excluirfornecedor' ,$fornecedor->idforn ) }}" onclick="return confirm('Deseja mesmo apagar?')" data-original-title="" title="">
+                        <i class="material-icons">delete</i>
+                        <div class="ripple-container"></div>
+                      </a>
+                  </td>
                   </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td class="text-primary">
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td class="text-primary">
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      4
-                    </td>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td class="text-primary">
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      5
-                    </td>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td class="text-primary">
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      6
-                    </td>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td class="text-primary">
-                      $78,615
-                    </td>
-                  </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-12">
-        <div class="card card-plain">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title mt-0"> Table on Plain Background</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead class="">
-                  <th>
-                    ID
-                  </th>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Country
-                  </th>
-                  <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
-                  </th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Dakota Rice
-                    </td>
-                    <td>
-                      Niger
-                    </td>
-                    <td>
-                      Oud-Turnhout
-                    </td>
-                    <td>
-                      $36,738
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td>
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td>
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      4
-                    </td>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td>
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      5
-                    </td>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td>
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      6
-                    </td>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td>
-                      $78,615
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

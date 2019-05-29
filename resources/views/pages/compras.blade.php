@@ -1,281 +1,86 @@
-@extends('layouts.app', ['activePage' => 'table', 'titlePage' => __('Table List')])
+@extends('layouts.app', ['activePage' => 'compras', 'titlePage' => __('Compras')])
 
 @section('content')
 <div class="content">
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Simple Table</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
+            <h4 class="card-title ">Produtos</h4>
+            <p class="card-category"> Todos os produtos</p>
           </div>
           <div class="card-body">
-          <div class="row">
-                  <div class="col-12 text-right">
-                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Pedido de Compra') }}</a>
+              <div class="col-12 text-right">
+                    <a href="{{ route('novo-produto') }}" class="btn btn-sm btn-primary">{{ __('Adicionar Produtos') }}</a>
                   </div>
                 </div>
-            <div class="table-responsive">
+            <div class="table-responsive col-md-12">
               <table class="table">
                 <thead class=" text-primary">
                   <th>
-                    ID do Pedido
+                    ID Produto
                   </th>
                   <th>
-                    Data Pedido
+                    Nome
                   </th>
                   <th>
-                    Data Entrega
+                    Marca
                   </th>
                   <th>
-                    Qtd de Produtos Total
+                    Cor
+                  </th>
+                  <th>
+                    Tamanho
+                  </th>
+                  <th>
+                    Preço Unidade
+                  </th>
+                  <th>
                   </th>
                 </thead>
                 <tbody>
+                @foreach($produtos as $produto)
                   <tr>
                     <td>
-                      1
+                      {{ $produto->idprod}}
                     </td>
                     <td>
-                      Dakota Rice
+                      {{ $produto->nome}}
+
                     </td>
                     <td>
-                      Niger
+                      {{ $produto->marca }}
                     </td>
                     <td>
-                      Oud-Turnhout
+                      {{ $produto->cor}}
                     </td>
-                    <td class="text-primary">
-                      $36,738
+                    <td>
+                      {{ $produto->tamanho}}
                     </td>
+                    <td>
+                    R$ {{ $produto->valoruni}}
+                    </td>
+                    <td class="td-actions text-center">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterproduto' ,$produto->idprod ) }}" data-original-title="" title="">
+                        <i class="material-icons">edit</i>
+                        <div class="ripple-container"></div>
+                      </a>
+                      <a rel="tooltip" class="btn btn-erro btn-link" href="{{ route('excluirproduto' ,$produto->idprod ) }}" onclick="return confirm('Deseja mesmo apagar?')" data-original-title="" title="">
+                        <i class="material-icons">delete</i>
+                        <div class="ripple-container"></div>
+                      </a>
+                  </td>
                   </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td class="text-primary">
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td class="text-primary">
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      4
-                    </td>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td class="text-primary">
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      5
-                    </td>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td class="text-primary">
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      6
-                    </td>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td class="text-primary">
-                      $78,615
-                    </td>
-                  </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-12">
-        <div class="card card-plain">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title mt-0"> Table on Plain Background</h4>
-            <p class="card-category"> Here is a subtitle for this table</p>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead class="">
-                  <th>
-                    ID
-                  </th>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Country
-                  </th>
-                  <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
-                  </th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Dakota Rice
-                    </td>
-                    <td>
-                      Niger
-                    </td>
-                    <td>
-                      Oud-Turnhout
-                    </td>
-                    <td>
-                      $36,738
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td>
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td>
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      4
-                    </td>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td>
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      5
-                    </td>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td>
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      6
-                    </td>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td>
-                      $78,615
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

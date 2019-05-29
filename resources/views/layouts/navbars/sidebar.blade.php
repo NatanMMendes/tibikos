@@ -43,7 +43,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'user' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('user') }}">
+        <a class="nav-link" href="/user">
           <i class="material-icons"></i>
             <p>{{ __('Usuarios') }}</p>
         </a>

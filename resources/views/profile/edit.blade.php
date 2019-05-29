@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'profile', 'titlePage' => __('User Profile')])
+@extends('layouts.app', ['activePage' => 'profile', 'titlePage' => __('Perfil')])
 
 @section('content')
   <div class="content">
@@ -11,8 +11,8 @@
 
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Edit Profile') }}</h4>
-                <p class="card-category">{{ __('User information') }}</p>
+                <h4 class="card-title">{{ __('Edit Perfil') }}</h4>
+                <p class="card-category">{{ __('Informações') }}</p>
               </div>
               <div class="card-body ">
                 @if (session('status'))
@@ -28,10 +28,10 @@
                   </div>
                 @endif
                 <div class="row">
-                  <label class="col-sm-2 col-form-label">{{ __('Name') }}</label>
+                  <label class="col-sm-2 col-form-label">{{ __('Nome') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Nome') }}" value="{{ old('name', auth()->user()->name) }}" required="true" aria-required="true"/>
                       @if ($errors->has('name'))
                         <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
                       @endif
@@ -51,7 +51,7 @@
                 </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Salvar') }}</button>
               </div>
             </div>
           </form>
@@ -65,8 +65,8 @@
 
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Change password') }}</h4>
-                <p class="card-category">{{ __('Password') }}</p>
+                <h4 class="card-title">{{ __('Alterar  Senha') }}</h4>
+                <p class="card-category">{{ __('Senha') }}</p>
               </div>
               <div class="card-body ">
                 @if (session('status_password'))
@@ -82,7 +82,7 @@
                   </div>
                 @endif
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-current-password">{{ __('Current Password') }}</label>
+                  <label class="col-sm-2 col-form-label" for="input-current-password">{{ __('Senha Atual') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
                       <input class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" input type="password" name="old_password" id="input-current-password" placeholder="{{ __('Current Password') }}" value="" required />
@@ -93,10 +93,10 @@
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password">{{ __('New Password') }}</label>
+                  <label class="col-sm-2 col-form-label" for="input-password">{{ __('Nova Senha') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="input-password" type="password" placeholder="{{ __('New Password') }}" value="" required />
+                      <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="input-password" type="password" placeholder="{{ __('Nova Senha') }}" value="" required />
                       @if ($errors->has('password'))
                         <span id="password-error" class="error text-danger" for="input-password">{{ $errors->first('password') }}</span>
                       @endif
@@ -104,16 +104,16 @@
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="input-password-confirmation">{{ __('Confirm New Password') }}</label>
+                  <label class="col-sm-2 col-form-label" for="input-password-confirmation">{{ __('Confirmar Nova Senha') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group">
-                      <input class="form-control" name="password_confirmation" id="input-password-confirmation" type="password" placeholder="{{ __('Confirm New Password') }}" value="" required />
+                      <input class="form-control" name="password_confirmation" id="input-password-confirmation" type="password" placeholder="{{ __('Confirmar Nova Senha') }}" value="" required />
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary">{{ __('Change password') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Alterar Senha') }}</button>
               </div>
             </div>
           </form>
