@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Http\Models\CompraModel as Compra;
+use App\Http\Models\ComprasModel as Compra;
 
 
 class ComprasController extends Controller
@@ -19,23 +19,25 @@ class ComprasController extends Controller
 
     public function manterCompra(Request $request){
         
-        $compra = Compra::where('idprod', $request->id_compra)->get()[0];
+        $compra = Compra::where('idpc', $request->id_compra)->get()[0];
         return view('compras.edit', ['compra' => $compra]);
     }
     
     public function editarCompra(Request $request){
         
         try{
-            $compra = Compra::where('idprod', $request->idprod)->get()[0];
-            $compra->nome = $request->nome;
-            $compra->marca = $request->marca;
-            $compra->cor = $request->cor;
-            $compra->tamanho = $request->tamanho;
-            $compra->valoruni = $request->valoruni;
+            $compra = Compra::where('idpc', $request->idpc)->get()[0];
+            $compra->idfornc = $request->idfornc;
+            $compra->idpr = $request->idpr;
+            $compra->datapedido = $request->datapedido;
+            $compra->dataentrega = $request->dataentrega;
+            $compra->quantidade = $request->quantidade;
+            $compra->valorpedido = $request->valorpedido;
+            $compra->estatus = $request->estatus;
 
             $compra->save();
         }catch (Exception $e) {
-            return redirect()->route('manter-compra' , $request->idprod);
+            return redirect()->route('manter-compra' , $request->idpc);
         } 
         return redirect()->route('compras');
     }
@@ -43,7 +45,7 @@ class ComprasController extends Controller
     public function excluirCompra(Request $request){
         
         try{
-            $compra = Compra::where('idprod', $request->id_compra)->get()[0];
+            $compra = Compra::where('idpc', $request->id_compra)->get()[0];
 
             $compra->delete();
         }catch (Exception $e) {
@@ -56,12 +58,14 @@ class ComprasController extends Controller
     {
         try{
             $compra = new Compra;
-
-            $compra->nome = $request->nome;
-            $compra->marca = $request->marca;
-            $compra->cor = $request->cor;
-            $compra->tamanho = $request->tamanho;
-            $compra->valoruni = $request->valoruni;
+            
+            $compra->idfornc = $request->idfornc;
+            $compra->idpr = $request->idpr;
+            $compra->datapedido = $request->datapedido;
+            $compra->dataentrega = $request->dataentrega;
+            $compra->quantidade = $request->quantidade;
+            $compra->valorpedido = $request->valorpedido;
+            $compra->estatus = $request->estatus;
 
             $compra->save();
         }catch (Exception $e) {
