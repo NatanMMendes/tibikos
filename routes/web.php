@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('compras', 'ComprasController@compras')->name('compras');
 	Route::get('manter-compra/{id_compra}', 'ComprasController@manterCompra')->name('mantercompra');
 	Route::get('excluir-compra/{id_compra}', 'ComprasController@excluirCompra')->name('excluircompra');
-	Route::get('novo-compra', function () {return view('compras.create');})->name('novo-compra');
+	Route::get('novo-compra', 'ComprasController@novaCompra')->name('novo-compra');
 	Route::post('criar-compra', 'ComprasController@criarCompra')->name('criar-compra');
 	Route::post('editar-compra', 'ComprasController@editarCompra')->name('editar-compra');
 

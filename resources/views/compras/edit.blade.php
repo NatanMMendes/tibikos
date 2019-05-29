@@ -25,23 +25,32 @@
                   <label class="col-sm-2 col-form-label">{{ __('Fornecedor') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('idfornc') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('idfornc') ? ' is-invalid' : '' }}" name="idfornc" id="input-idfornc" type="text" placeholder="{{ __('Fornecedor') }}" value="{{$compra->idfornc}}" required="true" aria-required="true"/>
-                    </div>
+                    <select name='idfornc' class="custom-select" id="inputGroupSelect01">
+                    @foreach ( $fornecedores as $fornecedor)
+                      <option value="{{$fornecedor->idforn}}" {{ $compra->idfornc == $fornecedor->idforn ? 'selected' : '' }}>{{$fornecedor->nomeforn}}</option>
+                    @endforeach
+
+                    </select>                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Produto') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('idpr') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('idpr') ? ' is-invalid' : '' }}" name="idpr" id="input-idpr" type="text" placeholder="{{ __('Produto') }}" value="{{$compra->idpr}}" required="true" aria-required="true"/>
-                    </div>
+                    <select name='idpr' class="custom-select" id="inputGroupSelect01">
+                    @foreach ( $produtos as $produto)
+                      <option value="{{$produto->idprod}}" {{ $compra->idpr == $produto->idprod ? 'selected' : '' }}>{{$produto->nome}}</option>
+                    @endforeach
+
+                    </select>                                         </div>
                   </div>
                 </div>
                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Data do Pedido') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('datapedido') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('datapedido') ? ' is-invalid' : '' }}" name="datapedido" id="input-datapedido" type="text" placeholder="{{ __('Data do Pedido') }}" value="{{$compra->datapedido}}" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('datapedido') ? ' is-invalid' : '' }}" name="datapedido" id="input-datapedido" type="date" placeholder="{{ __('Data do Pedido') }}" value="{{$compra->datapedido}}" required="true" aria-required="true"/>
+                    
                     </div>
                   </div>
                 </div>
@@ -49,7 +58,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Data da Entrega') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('dataentrega') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('dataentrega') ? ' is-invalid' : '' }}" name="dataentrega" id="input-dataentrega" type="text" placeholder="{{ __('Data da Entrega') }}" value="{{$compra->dataentrega}}" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('dataentrega') ? ' is-invalid' : '' }}" name="dataentrega" id="input-dataentrega" type="date" placeholder="{{ __('Data da Entrega') }}" value="{{$compra->dataentrega}}" required="true" aria-required="true"/>
                     </div>
                   </div>
                 </div>
@@ -73,8 +82,13 @@
                   <label class="col-sm-2 col-form-label">{{ __('Status') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('estatus') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('estatus') ? ' is-invalid' : '' }}" name="estatus" id="input-estatus" type="text" placeholder="{{ __('Status') }}" value="{{$compra->estatus}}" required="true" aria-required="true"/>
-                    </div>
+                    <select name='estatus' class="custom-select" id="inputGroupSelect01">
+                      <option value="E" {{ $compra->estatus == "E" ? 'selected' : '' }}>Em Espera</option>
+                      <option value="C" {{ $compra->estatus == "C" ? ' selected' : '' }}>Cancelado</option>
+                      <option value="R" {{ $compra->estatus == "R" ? ' selected' : '' }}>Recebido</option>
+                      <option value="O" {{ $compra->estatus == "O" ? ' selected' : '' }}>Outro</option>
+
+                    </select>                    </div>
                   </div>
                 </div>
               </div>

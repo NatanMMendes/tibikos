@@ -38,7 +38,7 @@
                       {{ $fornecedor->idforn}}
                     </td>
                     <td>
-                      {{ $fornecedor->nome}}
+                      {{ $fornecedor->nomeforn}}
 
                     </td>
                     <td>

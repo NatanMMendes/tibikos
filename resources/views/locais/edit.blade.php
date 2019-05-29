@@ -33,7 +33,19 @@
                   <label class="col-sm-2 col-form-label">{{ __('Capacidade') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('tamanho') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('tamanho') ? ' is-invalid' : '' }}" name="tamanho" id="input-tamanho" type="text" placeholder="{{ __('Capacidade') }}" value="{{$local->tamanho}}" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('tamanho') ? ' is-invalid' : '' }}" name="tamanho" id="input-tamanho" type="text" placeholder="{{ __('Capacidade') }}" value="{{$local->tamanho}}" aria-required="true"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-sm-2 col-form-label">{{ __('Status') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('tamanho') ? ' has-danger' : '' }}">
+
+                    <select name='status' class="custom-select" id="inputGroupSelect01">
+                      <option value="I" {{ $local->status == "I" ? 'selected' : '' }}>Inativo</option>
+                      <option value="A" {{ $local->status == "A" ? ' selected' : '' }}>Ativo</option>
+                    </select>
                     </div>
                   </div>
                 </div>

@@ -32,7 +32,7 @@
                   <label class="col-sm-2 col-form-label">{{ __('Capacidade') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('tamanho') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('tamanho') ? ' is-invalid' : '' }}" name="tamanho" id="input-tamanho" type="text" placeholder="{{ __('tamanho') }}" value="" required="true" aria-required="true"/>
+                      <input class="form-control{{ $errors->has('tamanho') ? ' is-invalid' : '' }}" name="tamanho" id="input-tamanho" type="text" placeholder="{{ __('tamanho') }}" value="" aria-required="true"/>
                     </div>
                   </div>
                 </div>

@@ -23,8 +23,8 @@
                 <div class="row">
                   <label class="col-sm-2 col-form-label">{{ __('Nome do Fornecedor') }}</label>
                   <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('nome') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="nome" id="input-nome" type="text" placeholder="{{ __('Nome do Fornecedor') }}" value="" required="true" aria-required="true"/>
+                    <div class="form-group{{ $errors->has('nomeforn') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('nomeforn') ? ' is-invalid' : '' }}" name="nomeforn" id="input-nomeforn" type="text" placeholder="{{ __('Nome do Fornecedor') }}" value="" required="true" aria-required="true"/>
                     </div>
                   </div>
                 </div>

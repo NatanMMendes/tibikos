@@ -47,11 +47,11 @@
                       {{ $compra->idpc}}
                     </td>
                     <td>
-                      {{ $compra->idfornc}}
+                    {{ $compra->nomeforn }}
 
                     </td>
                     <td>
-                      {{ $compra->idpr }}
+                      {{ $compra->nome }}
                     </td>
                     <td>
                       {{ $compra->datapedido}}
@@ -60,7 +60,15 @@
                       {{ $compra->dataentrega}}
                     </td>
                     <td>
-                      {{ $compra->estatus}}
+                    @if($compra->estatus == "E")
+                    Em espera
+                    @elseif($compra->estatus == "C")
+                    Cancelado
+                    @elseif($compra->estatus == "R")
+                    Recebido
+                    @else
+                    Outro
+                    @endif
                     </td>
                     <td class="td-actions text-center">
                       <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('mantercompra' ,$compra->idpc ) }}" data-original-title="" title="">

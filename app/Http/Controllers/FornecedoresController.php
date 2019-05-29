@@ -27,7 +27,7 @@ class FornecedoresController extends Controller
         
         try{
             $fornecedor = Fornecedor::where('idforn', $request->idforn)->get()[0];
-            $fornecedor->nome = $request->nome;
+            $fornecedor->nomeforn = $request->nomeforn;
             $fornecedor->cnpj = $request->cnpj;
             $fornecedor->endereco = $request->endereco;
             $fornecedor->email = $request->email;
@@ -57,7 +57,7 @@ class FornecedoresController extends Controller
         try{
             $fornecedor = new Fornecedor;
 
-            $fornecedor->nome = $request->nome;
+            $fornecedor->nomeforn = $request->nomeforn;
             $fornecedor->cnpj = $request->cnpj;
             $fornecedor->endereco = $request->endereco;
             $fornecedor->telefone = $request->telefone;

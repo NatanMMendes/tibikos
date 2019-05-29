@@ -29,6 +29,9 @@
                     Capacidade
                   </th>
                   <th>
+                    Status
+                  </th>
+                  <th>
                   </th>
                 </thead>
                 <tbody>
@@ -43,6 +46,13 @@
                     </td>
                     <td>
                       {{ $local->tamanho }}
+                    </td>
+                    <td>
+                    @if($local->status == "I")
+                    Inativo
+                    @else
+                    Ativo
+                    @endif
                     </td>
                     <td class="td-actions text-center">
                       <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('manterlocal' ,$local->idloc ) }}" data-original-title="" title="">

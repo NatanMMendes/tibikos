@@ -57,11 +57,11 @@ class EstoqueController extends Controller
         try{
             $estoque = new Estoque;
 
-            $estoque->nome = $request->nome;
-            $estoque->marca = $request->marca;
-            $estoque->cor = $request->cor;
+            $estoque->idest = $request->idest;
+            $estoque->idp = $request->idp;
+            $estoque->idl = $request->idl;
             $estoque->tamanho = $request->tamanho;
-            $estoque->valoruni = $request->valoruni;
+            $estoque->qtd = $request->qtd;
 
             $estoque->save();
         }catch (Exception $e) {

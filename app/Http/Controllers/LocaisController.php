@@ -29,6 +29,7 @@ class LocaisController extends Controller
             $local = Local::where('idloc', $request->idloc)->get()[0];
             $local->endereco = $request->endereco;
             $local->tamanho = $request->tamanho;
+            $local->status = $request->status;
 
             $local->save();
         }catch (Exception $e) {
@@ -41,8 +42,9 @@ class LocaisController extends Controller
         
         try{
             $local = Local::where('idloc', $request->id_local)->get()[0];
+            $local->status = "I";
 
-            $local->delete();
+            $local->save();
         }catch (Exception $e) {
             return redirect()->route('locais');
         } 
@@ -56,6 +58,8 @@ class LocaisController extends Controller
 
             $local->endereco = $request->endereco;
             $local->tamanho = $request->tamanho;
+            $local->status = $request->status;
+
 
             $local->save();
         }catch (Exception $e) {
